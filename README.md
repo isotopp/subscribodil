@@ -10,7 +10,7 @@ git clone https://github.com/isotopp/subscribodil.git
 # change into the repo
 cd subscribodil
 # set up a virtual environment
-python3 -mvenv mvenv
+python3 -mvenv venv
 # activate it
 source venv/bin/activate
 # update it
