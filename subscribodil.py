@@ -5,6 +5,7 @@ import os
 import signal
 import time
 
+from typing import Optional
 import click
 from dotenv import load_dotenv
 from mastodon import Mastodon, MastodonError
@@ -45,7 +46,7 @@ def log_error(error_reason: str, row: list, writer: csv.DictWriter) -> None:
 
 
 @timeout(TIMEOUT_VALUE)
-def follow(mastodon: Mastodon, account: AttribAccessDict) -> str | None:
+def follow(mastodon: Mastodon, account: AttribAccessDict) -> Optional[str]:
     """ Issue a follow request for this account to Mastdon,
         return True, if successful.
     """
@@ -63,7 +64,7 @@ def follow(mastodon: Mastodon, account: AttribAccessDict) -> str | None:
 
 
 @timeout(TIMEOUT_VALUE)
-def add_to_list(mastodon: Mastodon, list_id: int, account: AttribAccessDict) -> str | None:
+def add_to_list(mastodon: Mastodon, list_id: int, account: AttribAccessDict) -> Optional[str]:
     account_id = account['id']
     acct = account['acct']
 
@@ -135,10 +136,10 @@ def process_file(mastodon: Mastodon, list_id: int, source_filename: str, retry_f
             time.sleep(1)
 
 
-def get_app(client_key: str | None = None,
-            client_secret: str | None = None,
-            access_token: str | None = None,
-            api_base_url: str | None = None) -> Mastodon:
+def get_app(client_key: Optional[str] = None,
+            client_secret: Optional[str] = None,
+            access_token: Optional[str] = None,
+            api_base_url: Optional[str] = None) -> Mastodon:
     """ Get a mastodon object to communicate with the server.
         All parameters are optional, in which case we load things from a dotenv file or from
         environment variables.
