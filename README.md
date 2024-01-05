@@ -2,6 +2,27 @@
 
 Subscribodil uses the Mastodon API to subscribe people to your account and then add them to a list.
 
+Why is that useful?
+
+- You want to follow a lot of people, but you do not want those peoples posts to spam your home (main) timeline.
+- In order to actually receive posts from a person you must follow to them.
+  Otherwise, their Mastdon instance wouldn't know that your instance is supposed to get a copy of their message.
+- Starting with Mastdon 4.2, you can put people into lists and suppress their posts in your home timeline.
+  In order to do that, go to the list, press the list config button at the upper right in the web interface
+  and check `[x] Hide these posts from home`.
+
+![](images/list-config.png)
+
+- By selecting the list you can now read all these people topically, in a list.
+
+![](images/read-a-list.png)
+
+- This tool reads a Mastodon "Followlist" import file, subscribes all people from the file, and
+  puts them all into a single list.
+- In order to be able to do that it needs to be configured as a Mastodon application.
+  This is a one-time setup process, in which you tell Mastodon that you have a script, 
+  what you allow the script to do, and Mastodon will give you credentials for that.
+
 ## Installation
 
 ```bash
@@ -59,7 +80,7 @@ Substitute your mastodon instance name for "chaos.social":
 
 It is a cute little crocodile that manages your lists for you.
 
-![](subscribodil.png)
+![](images/subscribodil.png)
 
 # Issues
 
