@@ -60,3 +60,30 @@ Substitute your mastodon instance name for "chaos.social":
 It is a cute little crocodile that manages your lists for you.
 
 ![](subscribodil.png)
+
+# Issues
+
+1. (fixed) "TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'"
+
+I had been using "str | None" as a type annotation. This is supported only in Python 3.10 and higher.
+I have reverted this to
+```python
+from typing import Optional
+
+def some_function(...) -> Optional[str]:
+   pass
+```
+to make it work with older Python.
+
+2. "NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'"
+
+You are on MacOS.
+Apple is on a crusade against the GPL 3 because of the Software Patents clauses in there.
+All things in MacOS are being built without GPL 3 code, and ultimately without GPL code.
+Hence the old (3.x) bash, the weird rewrite of Samba and the drop of CUPS.
+
+Install [Homebrew](https://brew.sh), check the install with `brew doctor`.
+Then install first `brew install openssl`, and `brew install python@3.12` after that.
+
+You get a proper and modern Python. Add it to the `PATH` first.
+
