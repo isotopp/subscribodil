@@ -12,7 +12,7 @@ cd subscribodil
 # set up a virtual environment
 python3 -mvenv mvenv
 # activate it
-source venv/bin/activate
+source mvenv/bin/activate
 # update it
 pip install -U pip wheel
 # install dependencies
