@@ -47,7 +47,7 @@ Substitute your mastodon instance name for "chaos.social":
    ACCESS_TOKEN=redacted
    API_BASE_URL=https://chaos.social <- your instance here
    ```
-4. Download https://github.com/cstromblad/infosec_mastodon/blob/main/mastodon_infosec_import.csv
+4. Download https://raw.githubusercontent.com/cstromblad/infosec_mastodon/main/mastodon_infosec_import.csv
    from https://github.com/cstromblad/infosec_mastodon/tree/main
 5. Run it with the venv acticated:
    ```
